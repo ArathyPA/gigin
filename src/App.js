@@ -1,23 +1,51 @@
-import logo from './logo.svg';
+import {useState} from "react"
 import './App.css';
+import Jobs from './JobsRec.js';
+import { BrowserRouter as Router, Route, Routes,useNavigate } from "react-router-dom";
+import Login from "./Login";
+import JobsApplied from "./JobsApplied";
 
 function App() {
+  // const history=useNavigate();
+  // const [login,setLogin]=useState({})
+  // const url="https://dev123.gigin.ai/abc/index.php/Api_controller/login_email"
+  // const handleChange=(e)=>{
+  //   setLogin({...login,[e.target.name]:e.target.value})
+  // }
+  // const handlesubmit = async()=>{
+  //   //alert(JSON.stringify(login));
+  //   try{
+  //   const response = await fetch(url, {
+  //     method: "POST", // *GET, POST, PUT, DELETE, etc.
+  //     mode: "cors", // no-cors, *cors, same-origin
+  //     cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+  //     credentials: "same-origin", // include, *same-origin, omit
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       // 'Content-Type': 'application/x-www-form-urlencoded',
+  //     },      
+  //     body: JSON.stringify(login), // body data type must match "Content-Type" header
+  //   });
+  //   const data= await response.json();
+  //   alert(JSON.stringify(data))
+  //   console.log(data.status);
+  //   if(data.status=='success'){history('/jobs') }
+  //   else{alert('login failed')}
+  // }
+  // catch{
+  //   alert('Some issue occured')
+  // }
+  // }
+  // console.log(login)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     
+    <Routes>
+        <Route exact path="/" element={<Login/>} /> 
+        <Route path="/jobs" element={<Jobs/>} />
+        <Route path="/applied" element={<JobsApplied/>} />
+      </Routes>
+
     </div>
   );
 }
